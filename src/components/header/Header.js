@@ -10,15 +10,24 @@ const useStyle = makeStyles({
         margin: '0 10px'
     },
     logout: {
-        width: '100%',
-        margin: '10px auto 0 auto'
+        marginTop: '10px'
+    },
+    navbar: {
+        position: 'sticky',
+        top: 0,
     }
 })
 
 const Header = () => {
     const classes = useStyle();
+
+    // logout
+    function logOut() {
+        document.body.innerHTML = '<h2 style="text-align:center">Good Bye!</h2>'
+    }
+
     return (
-        <AppBar position="static" color="secondary">
+        <AppBar className={classes.navbar} color="secondary">
             <Toolbar>
                 <Grid container display="flex" justify="space-between">
                     <Grid item>
@@ -30,7 +39,7 @@ const Header = () => {
                         </Grid>
                     </Grid>
                     <Grid item>
-                        <Button variant="contained" color="primary" className={classes.logout} size="small">Logout</Button>
+                        <Button variant="contained" onClick={logOut} color="primary" className={classes.logout} size="small">Logout</Button>
                     </Grid>
                 </Grid>
             </Toolbar>
